@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-[var(--font-inter)];
+  }
+
+  .post-content {
+    @apply mt-5;
+  }
+
+  .post-content p {
+    @apply text-zinc-700 dark:text-white text-sm leading-6 mb-4;
+  }
+
+  h1 {
+    @apply text-zinc-700 dark:text-white mb-2.5 font-bold text-xl -tracking-[0.015em];
+  }
+
+  p a {
+    @apply text-blue-500;
+  }
+
+  code {
+    @apply p-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-xs text-zinc-800 dark:text-white;
+  }
+
+  pre {
+    @apply p-5 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-xl text-xs mb-2.5;
+  }
+
+  pre code {
+    @apply p-0 bg-inherit border-none rounded-none dark:text-white;
+  }
+
+  p code {
+    @apply font-[var(--font-dm-mono)];
+  }
+}
