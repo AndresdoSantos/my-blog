@@ -35,6 +35,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </nav>
         </header> */}
 
+        <div className="h-10 w-full bg-zinc-900 text-center flex items-center justify-center text-xs text-white">
+          This website is under development
+        </div>
+
         <main className="min-h-screen">{children}</main>
       </body>
     </html>

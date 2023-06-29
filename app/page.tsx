@@ -1,11 +1,13 @@
 import clsx from 'clsx'
 import dayjs from 'dayjs'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { client } from '@/apollo-client'
+
 import { Search } from '@/components/icons/Search'
+
 import { GET_POSTS_QUERY, Posts } from '@/gql/queries/get-posts-query'
-import Image from 'next/image'
 
 async function getPosts() {
   const { data } = await client.query<Posts>({

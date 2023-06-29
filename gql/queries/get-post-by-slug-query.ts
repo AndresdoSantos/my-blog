@@ -7,6 +7,7 @@ export const GET_POST_BY_SLUG_QUERY = gql`
       slug
       description
       tags
+      likes
       content {
         html
       }
@@ -24,6 +25,7 @@ export type PostBySlug = {
     content: {
       html: string
     }
+    likes: number
     createdAt: string
   }
 }

@@ -7,8 +7,7 @@ import {
   PostBySlug,
 } from '@/gql/queries/get-post-by-slug-query'
 
-import { GithubLogo } from '@/components/GithubLogo'
-import { ThumbsUp } from '@/components/icons/ThumbsUp'
+import { Github } from '@/components/icons/Github'
 import { X } from '@/components/icons/X'
 
 async function getPostBySlug(slug: string) {
@@ -53,14 +52,9 @@ export default async function Post({ params }: Props) {
               Blog <div className="h-1 w-1 rounded-full bg-zinc-500 mx-2"></div>{' '}
               {data.post.title}
             </span>
-
-            <button className="transition-[:hover] duration-300 hover:scale-125 flex items-center gap-x-2">
-              <ThumbsUp />
-              <span className="text-zinc-700 text-xs font-medium mt-0.5">
-                25
-              </span>
-            </button>
           </div>
+
+          {/** <Like likes={data.post.likes} slug={data.post.slug} /> */}
 
           <div className="flex flex-1">
             <Link href="/" className="ml-auto">
@@ -104,7 +98,7 @@ export default async function Post({ params }: Props) {
           target="_blank"
           className="flex items-center text-sm font-normal gap-x-2 text-zinc-700"
         >
-          <GithubLogo />
+          <Github />
           Follow me on Github
         </Link>
       </footer>
