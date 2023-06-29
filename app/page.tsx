@@ -1,9 +1,11 @@
-import { client } from '@/apollo-client'
+import clsx from 'clsx'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 
+import { client } from '@/apollo-client'
+import { Search } from '@/components/icons/Search'
 import { GET_POSTS_QUERY, Posts } from '@/gql/queries/get-posts-query'
-import clsx from 'clsx'
+import Image from 'next/image'
 
 async function getPosts() {
   const { data } = await client.query<Posts>({
@@ -18,59 +20,91 @@ async function getPosts() {
 export default async function Home() {
   const { data } = await getPosts()
 
-  const FIRST_POST = data.posts[0]
-
   return (
     <>
-      <section className="flex flex-col">
-        <span className="text-2xl font-bold text-zinc-700 dark:text-white -tracking-wider leading-10">
-          Blog
-        </span>
-        <span className="text-sm font-normal text-zinc-500 dark:text-zinc-400 -tracking-tight">
-          Algumas coisas que eu estudo e acho interessante compartilhar.
-        </span>
+      <div className="flex items-center h-screen max-w-5xl mx-auto">
+        <div className="h-full w-full pt-14 bg-white">
+          <header className="pb-10 flex items-center justify-between max-w-[50rem]">
+            <div className="flex items-center">
+              <div className="h-10 w-10 rounded-full flex items-center justify-center bg-gradient-to-b from-blue-600 via-yellow-600 to-pink-600">
+                <Image
+                  src="https://github.com/AndresdoSantos.png"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="rounded-full"
+                />
+              </div>
 
-        <div className="h-[1px] w-full bg-zinc-200 dark:bg-zinc-800 my-5"></div>
-      </section>
-
-      <Link href={`/post/${FIRST_POST.slug}`} className="flex flex-col">
-        <span className="text-2xl text-zinc-700 dark:text-white font-bold leading-10 mt-5">
-          {FIRST_POST.title}
-        </span>
-        <span className="text-sm text-zinc-500 dark:text-zinc-400 font-normal">
-          {FIRST_POST.description}
-        </span>
-
-        <time className="text-[13px] text-zinc-700 dark:text-white font-medium dark:font-normal -tracking-wide mt-2.5">
-          {dayjs(FIRST_POST.createdAt).format('MMMM DD[, ] YYYY')}
-        </time>
-      </Link>
-
-      <div className="h-[1px] w-full bg-zinc-200 dark:bg-zinc-800 my-5"></div>
-
-      <div className="mt-5 pb-20">
-        {data.posts.map((item, index) => (
-          <Link
-            key={item.slug}
-            href={`/post/${item.slug}`}
-            className={clsx('flex items-center', {
-              hidden: index === 0,
-            })}
-          >
-            <div className="flex flex-col">
-              <span className="text-2xl text-zinc-700 dark:text-white font-bold leading-10">
-                {item.title}
-              </span>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400 font-normal">
-                {item.description}
-              </span>
-
-              <time className="text-[13px] text-zinc-700 dark:text-white font-medium dark:font-normal -tracking-wide mt-2.5">
-                {dayjs(item.createdAt).format('MMMM DD[, ] YYYY')}
-              </time>
+              <span className="text-sm text-zinc-700 ml-2.5">ANDRES</span>
             </div>
-          </Link>
-        ))}
+
+            <div className="h-4 w-[1px] bg-zinc-200 ml-10"></div>
+
+            <div className="flex ml-10 gap-x-5 mr-auto">
+              <Link href="/">
+                <span className="text-[13px] text-zinc-700 font-medium">
+                  BLOG
+                </span>
+              </Link>
+
+              <Link href="/projects">
+                <span className="text-[13px] text-zinc-700 font-medium">
+                  PROJECTS
+                </span>
+              </Link>
+            </div>
+
+            <label
+              htmlFor=""
+              className="flex items-center bg-zinc-100 rounded-full transition-all duration-300 w-44 focus-within:w-64 gap-x-3 h-10 px-2 border border-zinc-100 focus-within:border-zinc-300"
+            >
+              <Search />
+
+              <input
+                type="text"
+                className="bg-inherit w-full h-full text-xs outline-none rounded-r-full"
+                placeholder="What do you need?"
+              />
+            </label>
+          </header>
+
+          {data.posts.map((item, index) => (
+            <Link
+              key={item.slug}
+              href={`/post/${item.slug}`}
+              className={clsx('flex items-center justify-between mb-10', {
+                // hidden: index === 0,
+              })}
+            >
+              <div className="flex flex-col">
+                <time className="text-xs text-zinc-400 mt-2.5">
+                  {dayjs(item.createdAt).format('MMM DD')}
+                </time>
+
+                <span className="text-lg text-zinc-800 font-bold leading-10">
+                  {item.title}
+                </span>
+                <span className="text-[13px] text-zinc-600 w-[500px]">
+                  {item.description}
+                </span>
+
+                <ul className="flex flex-wrap mt-2.5 gap-x-2">
+                  {item.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="text-xs text-zinc-700 bg-zinc-100 font-medium py-2 px-3.5 rounded-lg"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-y-10 px-10 py-14 fixed left-[calc(100vw_-_24rem)] border-l h-full"></div>
       </div>
     </>
   )

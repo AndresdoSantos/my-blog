@@ -1,6 +1,5 @@
 // eslint-disable-next-line camelcase
 import { DM_Mono, Inter } from 'next/font/google'
-import Link from 'next/link'
 import { ReactNode } from 'react'
 
 import './globals.css'
@@ -21,24 +20,22 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${DMMono.variable} ${inter.variable} bg-white dark:bg-zinc-900`}
-      >
-        <header className="z-50 fixed top-0 flex items-center bg-white dark:bg-zinc-800/50 py-2.5 px-2.5 sm:px-5 w-full border-b border-b-zinc-100 dark:border-b-zinc-800">
+      <body className={`${DMMono.variable} ${inter.variable} bg-white`}>
+        {/** <header className="z-50 fixed top-0 flex items-center bg-white h-14 px-2.5 sm:px-5 w-full border-b border-b-zinc-100">
           <section className="flex items-center gap-x-2.5">
             <div className="h-8 w-8 bg-zinc-100 rounded-full"></div>
 
-            <span className="text-xs font-medium text-zinc-700 dark:text-white truncate">
+            <span className="text-xs font-medium text-zinc-700 truncate">
               ANDRES DOS SANTOS
             </span>
           </section>
 
-          <nav className="text-[13px] text-zinc-700 dark:text-white font-medium ml-auto sm:ml-[136px] sm:px-5">
+          <nav className="text-[13px] text-zinc-700 font-medium ml-auto sm:ml-[136px] sm:px-5">
             <Link href="blog">Blog</Link>
           </nav>
-        </header>
+        </header> */}
 
-        <main className="max-w-3xl mx-auto pt-20 px-5">{children}</main>
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   )

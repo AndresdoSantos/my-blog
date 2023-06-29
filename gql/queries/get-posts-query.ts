@@ -7,6 +7,7 @@ export const GET_POSTS_QUERY = gql`
       slug
       description
       imageUrl
+      tags
 
       createdAt
     }
@@ -18,6 +19,7 @@ export type Post = {
   slug: string
   description: string
   imageUrl: string
+  tags: string[]
   createdAt: string
 }
 
