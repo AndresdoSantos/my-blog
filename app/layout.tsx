@@ -5,6 +5,7 @@ import { ReactNode } from 'react'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+
 const DMMono = DM_Mono({
   subsets: ['latin'],
   weight: '500',

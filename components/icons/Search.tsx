@@ -3,5 +3,5 @@
 import { MagnifyingGlass as PhosphorSearch } from '@phosphor-icons/react'
 
 export function Search() {
-  return <PhosphorSearch weight="duotone" size={20} />
+  return <PhosphorSearch className="text-zinc-700" size={30} />
 }

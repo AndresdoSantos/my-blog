@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
   .post-content {
     @apply mt-5;
   }

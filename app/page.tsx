@@ -50,11 +50,9 @@ export default async function Home() {
                 </span>
               </Link>
 
-              <Link href="/projects">
-                <span className="text-[13px] text-zinc-700 font-medium">
-                  PROJECTS
-                </span>
-              </Link>
+              <span className="text-[13px] text-zinc-700 font-medium">
+                PROJECTS
+              </span>
             </div>
 
             <label
