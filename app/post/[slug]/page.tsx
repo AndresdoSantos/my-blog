@@ -9,6 +9,8 @@ import {
 
 import { Github } from '@/components/icons/Github'
 import { X } from '@/components/icons/X'
+import { Twitter } from '@/components/icons/Twitter'
+import { Tooltip } from '@/components/Tooltip'
 
 async function getPostBySlug(slug: string) {
   const { data } = await client.query<PostBySlug>({
@@ -92,14 +94,49 @@ export default async function Post({ params }: Props) {
         </ul>
       </div>
 
-      <footer className="w-full py-5 border-t border-t-zinc-100">
+      <footer className="flex items-center justify-between w-full border-t border-t-zinc-100 pb-20">
+        <section className="flex items-center gap-x-5">
+          <Link
+            href="https://github.com/AndresdoSantos"
+            target="_blank"
+            className="flex items-center text-sm font-normal gap-x-2 text-zinc-700"
+          >
+            <Tooltip message="Meu Github">
+              <Github />
+            </Tooltip>
+          </Link>
+
+          <Link
+            href="https://github.com/AndresdoSantos"
+            target="_blank"
+            className="flex items-center text-sm font-normal gap-x-2 text-zinc-700"
+          >
+            <Tooltip message="Meu Twitter">
+              <Twitter />
+            </Tooltip>
+          </Link>
+        </section>
+
         <Link
-          href="https://github.com/AndresdoSantos"
-          target="_blank"
-          className="flex items-center text-sm font-normal gap-x-2 text-zinc-700"
+          href=""
+          className="flex items-center mt-5 text-sm font-medium gap-x-2"
         >
-          <Github />
-          Follow me on Github
+          <div className="flex flex-col text-right transition-all duration-300 text-zinc-700 hover:text-zinc-900">
+            <span>Como fazer arroz com feijão</span>
+            <span className="text-xs transition-all duration-300 text-zinc-500 hover:text-zinc-600">
+              O processo requer grandes habilidades culinárias.
+            </span>
+
+            <section className="mt-2 ml-auto flex items-center gap-x-5">
+              <div className="font-bold text-xs text-zinc-800 flex items-center gap-x-1 text-center">
+                1 <div className="h-1 w-1 bg-zinc-700 rounded-full" /> 2
+              </div>
+
+              <div className="font-bold text-[9px] text-red-500 text-center uppercase">
+                Não listado
+              </div>
+            </section>
+          </div>
         </Link>
       </footer>
     </div>
