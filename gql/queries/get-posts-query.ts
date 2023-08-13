@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 export const GET_POSTS_QUERY = gql`
   query GetPostsQuery {
-    posts {
+    posts(orderBy: createdAt_DESC) {
       title
       slug
       description
