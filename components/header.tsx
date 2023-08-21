@@ -1,15 +1,15 @@
-'use client'
-
 import Link from 'next/link'
 
-import { Theme } from './theme'
+// import { Theme } from './theme'
 
 export function Header() {
   return (
     <header className="z-10 backdrop-blur-sm fixed top-0 flex items-center justify-between px-20 h-20 max-h-[70px] w-screen dark:bg-zinc-900 border-b dark:border-b-zinc-700">
-      <span className="text-sm text-zinc-600 dark:text-zinc-200 font-medium tracking-[0.4em]">
-        ANDRES
-      </span>
+      <div className="flex items-center relative">
+        [<div className="bg-zinc-200 rounded-full h-2 w-2 ml-1"></div>
+        <div className="bg-zinc-500 rounded-full h-2 w-2"></div>
+        <div className="bg-zinc-800 rounded-full h-2 w-2 mr-1"></div>]
+      </div>
 
       <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-700 ml-10"></div>
 
@@ -27,14 +27,14 @@ export function Header() {
         </Link>
       </div>
 
-      <section className="flex items-center space-x-5">
-        <Theme />
+      {/** <section className="flex items-center space-x-5">
+        <Theme /> 
         <input
           type="text"
           className="h-[36px] w-[200px] outline-none transition-all duration-200 border-2 border-zinc-200 dark:border-zinc-700 focus:w-[220px] rounded-full bg-zinc-100 dark:bg-zinc-700 text-[13px] px-3 focus:border-zinc-500 dark:focus:border-zinc-500"
           placeholder="Tag or title"
         />
-      </section>
+      </section> */}
     </header>
   )
 }

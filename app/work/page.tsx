@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import Image from 'next/image'
 
 import { client } from '@/apollo-client'
@@ -24,55 +23,58 @@ export default async function Work() {
     <>
       <Header />
 
-      <div className="pt-40 flex flex-col space-y-20">
+      <div className="py-40 flex flex-col space-y-20">
         {data.works.map((work) => (
-          <div className="flex items-center space-x-10" key={work.id}>
-            <div className="h-72 w-96 rounded-lg relative">
-              <Image
-                src={work.images[0].url}
-                alt=""
-                width={384}
-                height={288}
-                className="border-2 border-zinc-900 dark:border-white"
-              />
-              <Image
-                className="absolute -bottom-10 left-5 h-20 w-20 border-2 border-zinc-900 dark:border-white"
-                src={work.images[1].url}
-                alt=""
-                width={80}
-                height={80}
-              />
-            </div>
+          <div key={work.id} className="flex flex-col space-y-10">
+            <Image
+              className="border-2 border-zinc-900 dark:border-white mx-auto"
+              src={work.images[0].url}
+              width={80}
+              height={80}
+              alt=""
+            />
 
-            <section className="flex flex-col w-[60%] space-y-5">
-              <h1 className="text-[54px] font-bold leading-[50px]">
+            <header className="flex flex-col items-center">
+              <h1 className="text-3xl font-bold leading-[50px]">
                 {work.title}
               </h1>
 
-              <span className="text-sm text-zinc-700 dark:text-white">
+              <span className="text-sm text-center text-zinc-700 dark:text-white">
                 {work.description}
               </span>
+            </header>
 
-              <section className="flex items-center gap-x-10">
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-zinc-500">
-                    STATUS
-                  </span>
-                  <span className="text-xs font-medium uppercase">
-                    {work.statuses[0]}
-                  </span>
-                </div>
+            <section className="flex items-center justify-center space-x-2.5">
+              <span className="flex items-center justify-center h-8 px-4 rounded-full bg-green-300/20 text-xs font-bold text-green-700 uppercase">
+                {work.statuses}
+              </span>
 
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-zinc-500">
-                    STARTED AT
-                  </span>
-                  <span className="text-xs font-medium uppercase">
-                    {dayjs(work.createdAt).format('YYYY[, ]MMMM DD')}
-                  </span>
-                </div>
-              </section>
+              <span className="flex items-center justify-center h-8 px-4 rounded-full bg-cyan-300/20 text-xs font-bold text-cyan-700 uppercase">
+                {work.duration}
+              </span>
+
+              <a href={work.githubUrl}>
+                <span className="flex items-center justify-center h-8 px-4 rounded-full border border-zinc-800 text-[11px] font-semibold text-zinc-800 uppercase">
+                  {work.githubUrl}
+                </span>
+              </a>
             </section>
+
+            <ol className="flex flex-wrap gap-2">
+              {work.images.map(
+                (image, idx) =>
+                  idx > 0 && (
+                    <Image
+                      key={image.id}
+                      className="border-2 border-zinc-900 dark:border-white overflow-hidden transition-all duration-500 hover:scale-105"
+                      src={image.url}
+                      alt=""
+                      width={image.width / 4}
+                      height={image.height / 4}
+                    />
+                  ),
+              )}
+            </ol>
           </div>
         ))}
       </div>

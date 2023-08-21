@@ -17,7 +17,7 @@
   }
 
   h1, h2, h3, h4, strong, p {
-    @apply font-[var(--font-inter)];
+    @apply -tracking-wider;
   }
 
   h1 {
@@ -29,15 +29,15 @@
   }
 
   code {
-    @apply p-1 bg-zinc-100 dark:bg-zinc-700/50 rounded-md text-sm text-zinc-800 dark:text-white font-[DM_Mono] overflow-x-scroll;
+    @apply p-1 bg-zinc-100 dark:bg-zinc-700/50 rounded-md text-sm text-zinc-800 dark:text-white overflow-x-scroll;
   }
 
   pre {
-    @apply p-5 bg-zinc-100 dark:bg-zinc-700/50 rounded-md text-sm mb-2.5 font-[DM_Mono] overflow-x-scroll;
+    @apply p-5 bg-zinc-100 dark:bg-zinc-700/50 rounded-md text-sm mb-2.5 overflow-x-scroll;
   }
 
   pre code {
-    @apply p-0 bg-inherit border-none rounded-none font-[DM_Mono];
+    @apply p-0 bg-inherit border-none rounded-none;
   }
 
   .line {

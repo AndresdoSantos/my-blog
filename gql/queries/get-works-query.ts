@@ -3,34 +3,36 @@ import { gql } from '@apollo/client'
 export const GET_WORKS_QUERY = gql`
   query GetWorksQuery {
     works {
-      createdAt
-      description
       id
-      publishedAt
-      statuses
+      description
       title
-      updatedAt
+      statuses
+      duration
+      githubUrl
 
       images {
         id
         url
+        height
+        width
       }
     }
   }
 `
 
 export type Work = {
-  createdAt: string
   description: string
   id: string
-  publishedAt: any
-  statuses: string[]
+  statuses: string
   title: string
-  updatedAt: string
+  duration: string
+  githubUrl: string
 
   images: {
     id: string
     url: string
+    height: number
+    width: number
   }[]
 }
 

@@ -30,7 +30,7 @@ export default async function Home() {
             href={`/post/${item.slug}`}
             className="flex items-center space-x-10 group"
           >
-            <strong className="text-zinc-200 dark:text-zinc-600 text-[54px] font-bold group-hover:text-yellow-300">
+            <strong className="transition-all duration-300 text-zinc-200 dark:text-zinc-600 text-xs font-bold group-hover:text-3xl">
               {index + 1 < 10 ? `0${index + 1}` : index + 1}
             </strong>
 
@@ -38,7 +38,7 @@ export default async function Home() {
               <span className="text-lg text-zinc-600 dark:text-zinc-100 font-bold leading-10">
                 {item.title}
               </span>
-              <span className="text-[15px] text-zinc-600 dark:text-zinc-400 min-w-[90%] w-full">
+              <span className="text-[13px] text-zinc-700 dark:text-zinc-400 min-w-[90%] w-full">
                 {item.description}
               </span>
             </div>
