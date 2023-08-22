@@ -27,7 +27,7 @@ export default async function Work() {
         {data.works.map((work) => (
           <div key={work.id} className="flex flex-col space-y-10">
             <Image
-              className="border-2 border-zinc-900 dark:border-white mx-auto"
+              className="border-2 border-zinc-900  mx-auto"
               src={work.images[0].url}
               width={80}
               height={80}
@@ -39,7 +39,7 @@ export default async function Work() {
                 {work.title}
               </h1>
 
-              <span className="text-sm text-center text-zinc-700 dark:text-white">
+              <span className="text-sm text-center text-zinc-700 ">
                 {work.description}
               </span>
             </header>
@@ -66,7 +66,7 @@ export default async function Work() {
                   idx > 0 && (
                     <Image
                       key={image.id}
-                      className="border-2 border-zinc-900 dark:border-white overflow-hidden transition-all duration-500 hover:scale-105"
+                      className="border-2 border-zinc-900  overflow-hidden transition-all duration-500 hover:scale-105"
                       src={image.url}
                       alt=""
                       width={image.width / 4}

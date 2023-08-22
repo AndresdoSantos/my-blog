@@ -13,7 +13,7 @@
   }
 
   .post-content p {
-    @apply text-zinc-700 dark:text-zinc-100 text-[15px] leading-5 mb-5;
+    @apply text-zinc-700 text-[15px] leading-5 mb-5;
   }
 
   h1, h2, h3, h4, strong, p {
@@ -21,7 +21,7 @@
   }
 
   h1 {
-    @apply text-zinc-700 dark:text-zinc-100 mb-2.5 font-bold text-xl -tracking-[0.015em];
+    @apply text-zinc-700 mb-2.5 font-bold text-xl -tracking-[0.015em];
   }
 
   p a {
@@ -29,11 +29,11 @@
   }
 
   code {
-    @apply p-1 bg-zinc-100 dark:bg-zinc-700/50 rounded-md text-sm text-zinc-800 dark:text-white overflow-x-scroll;
+    @apply p-1 bg-zinc-100 rounded-md text-sm text-zinc-800 overflow-x-scroll;
   }
 
   pre {
-    @apply p-5 bg-zinc-100 dark:bg-zinc-700/50 rounded-md text-sm mb-2.5 overflow-x-scroll;
+    @apply p-5 bg-zinc-100 rounded-md text-sm mb-2.5 overflow-x-scroll;
   }
 
   pre code {

@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={`${inter.className}`}>
         <ThemeProvider>
-          <div className="w-screen min-h-screen h-auto dark:bg-zinc-900">
+          <div className="w-screen min-h-screen h-auto">
             <main className="flex flex-col items-center min-h-screen max-w-5xl mx-auto">
               {children}
             </main>

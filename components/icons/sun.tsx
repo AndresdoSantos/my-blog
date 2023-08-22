@@ -6,7 +6,7 @@ export function Sun() {
   return (
     <PhosphorSun
       weight="duotone"
-      className="text-zinc-700 dark:text-white"
+      className="text-zinc-700 "
       size={20}
     />
   )

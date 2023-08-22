@@ -10,7 +10,7 @@ export function Theme() {
 
   return (
     <button
-      className="text-zinc-800 dark:text-white text-xs"
+      className="text-zinc-800  text-xs"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       {theme === 'dark' ? <Sun /> : <Moon />}

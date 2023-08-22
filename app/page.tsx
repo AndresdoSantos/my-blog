@@ -23,22 +23,22 @@ export default async function Home() {
     <>
       <Header />
 
-      <div className="flex flex-col items-start min-h-screen h-full space-y-10 w-full pt-36 dark:bg-zinc-900">
+      <div className="flex flex-col items-start min-h-screen h-full space-y-10 w-full pt-36">
         {data.posts.map((item, index) => (
           <Link
             key={item.slug}
             href={`/post/${item.slug}`}
             className="flex items-center space-x-10 group"
           >
-            <strong className="transition-all duration-300 text-zinc-200 dark:text-zinc-600 text-xs font-bold group-hover:text-3xl">
+            <strong className="transition-all duration-300 text-zinc-200 text-xs font-bold group-hover:text-3xl">
               {index + 1 < 10 ? `0${index + 1}` : index + 1}
             </strong>
 
             <div className="flex flex-col">
-              <span className="text-lg text-zinc-600 dark:text-zinc-100 font-bold leading-10">
+              <span className="text-lg text-zinc-600 font-bold leading-10">
                 {item.title}
               </span>
-              <span className="text-[13px] text-zinc-700 dark:text-zinc-400 min-w-[90%] w-full">
+              <span className="text-[13px] text-zinc-700 min-w-[90%] w-full">
                 {item.description}
               </span>
             </div>

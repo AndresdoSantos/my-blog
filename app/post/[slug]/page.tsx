@@ -39,7 +39,7 @@ export default async function Post({ params }: Props) {
       <h1 className="text-4xl font-bold text-zinc-700 -tracking-wider leading-10 mt-32 mb-10">
         {data.post.title}
       </h1>
-      <span className="text-[15px] font-normal text-zinc-600 dark:text-zinc-100 -tracking-tight block mb-10">
+      <span className="text-[15px] font-normal text-zinc-600  -tracking-tight block mb-10">
         {data.post.description}
       </span>
 
@@ -49,14 +49,14 @@ export default async function Post({ params }: Props) {
       />
 
       <div className="mb-5 mt-10 flex items-center">
-        <span className="text-sm text-zinc-700 dark:text-white font-medium block mr-3.5">
+        <span className="text-sm text-zinc-700  font-medium block mr-3.5">
           Tags
         </span>
         <ul className="flex flex-wrap gap-2">
           {data.post.tags.map((tag) => (
             <li
               key={tag}
-              className="text-xs text-zinc-700 dark:text-white bg-zinc-100 dark:bg-zinc-700 font-medium py-2 px-3.5 rounded-lg"
+              className="text-xs text-zinc-700  bg-zinc-100  font-medium py-2 px-3.5 rounded-lg"
             >
               {tag}
             </li>
@@ -64,12 +64,12 @@ export default async function Post({ params }: Props) {
         </ul>
       </div>
 
-      <footer className="flex items-center justify-between w-full border-t border-t-zinc-100 dark:border-t-zinc-700">
+      <footer className="flex items-center justify-between w-full border-t border-t-zinc-100 ">
         <section className="flex items-center gap-x-5 py-5">
           <Link
             href="https://github.com/AndresdoSantos"
             target="_blank"
-            className="flex items-center text-sm font-normal gap-x-2 text-zinc-700 dark:text-white"
+            className="flex items-center text-sm font-normal gap-x-2 text-zinc-700 "
           >
             <Github />
           </Link>
