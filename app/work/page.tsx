@@ -25,9 +25,12 @@ export default async function Work() {
 
       <div className="py-40 flex flex-col space-y-20">
         {data.works.map((work) => (
-          <div key={work.id} className="flex flex-col space-y-10">
+          <div
+            key={work.id}
+            className="flex flex-col items-center justify-center space-y-10"
+          >
             <Image
-              className="border-2 border-zinc-900  mx-auto"
+              className="border-2 border-zinc-900 sm:mx-auto"
               src={work.images[0].url}
               width={80}
               height={80}
@@ -35,21 +38,21 @@ export default async function Work() {
             />
 
             <header className="flex flex-col items-center">
-              <h1 className="text-3xl font-bold leading-[50px]">
+              <h1 className="text-xl sm:text-3xl font-bold leading-[50px]">
                 {work.title}
               </h1>
 
-              <span className="text-sm text-center text-zinc-700 ">
+              <span className="text-xs sm:text-sm text-center text-zinc-700">
                 {work.description}
               </span>
             </header>
 
-            <section className="flex items-center justify-center space-x-2.5">
+            <section className="flex flex-col-reverse sm:flex-row items-center justify-center sm:space-x-2.5">
               <span className="flex items-center justify-center h-8 px-4 rounded-full bg-green-300/20 text-xs font-bold text-green-700 uppercase">
                 {work.statuses}
               </span>
 
-              <span className="flex items-center justify-center h-8 px-4 rounded-full bg-cyan-300/20 text-xs font-bold text-cyan-700 uppercase">
+              <span className="flex items-center justify-center h-8 px-4 rounded-full bg-cyan-300/20 text-xs font-bold text-cyan-700 uppercase my-2.5 sm:my-0">
                 {work.duration}
               </span>
 
@@ -60,7 +63,7 @@ export default async function Work() {
               </a>
             </section>
 
-            <ol className="flex flex-wrap gap-2">
+            <ol className="flex flex-col sm:flex-row gap-2">
               {work.images.map(
                 (image, idx) =>
                   idx > 0 && (

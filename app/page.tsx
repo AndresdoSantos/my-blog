@@ -11,12 +11,10 @@ async function getPosts() {
     query: GET_POSTS_QUERY,
     context: {
       fetchOptions: {
-        next: { revalidate: 3600 * 8 }, // seconds
+        next: { revalidate: 3600 * 8 }, // seconds - 8 hours
       },
     },
   })
-
-  console.log(data)
 
   return {
     data,
@@ -35,17 +33,17 @@ export default async function Home() {
           <Link
             key={item.slug}
             href={`/post/${item.slug}`}
-            className="flex items-center space-x-10 group"
+            className="flex items-center sm:space-x-10 group px-5"
           >
-            <strong className="transition-all duration-300 text-zinc-200 text-xs font-bold group-hover:text-3xl">
+            <strong className="hidden sm:block transition-all duration-300 text-zinc-200 text-xs font-bold group-hover:text-3xl">
               {index + 1 < 10 ? `0${index + 1}` : index + 1}
             </strong>
 
             <div className="flex flex-col">
-              <span className="text-lg text-zinc-600 font-bold leading-10">
+              <span className="block mb-2.5 sm:mb-0 text-lg text-zinc-600 font-bold leading-5 sm:leading-10">
                 {item.title}
               </span>
-              <span className="text-[13px] text-zinc-700 min-w-[90%] w-full">
+              <span className="text-[13px] text-zinc-600 min-w-[90%] w-full font-medium">
                 {item.description}
               </span>
             </div>

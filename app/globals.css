@@ -17,19 +17,19 @@
   }
 
   h2, h3, h4 {
-    @apply -tracking-wider font-bold text-lg text-zinc-700 mb-5;
+    @apply -tracking-wider font-bold sm:text-lg text-zinc-700 mb-5;
   }
 
   strong {
-    @apply -tracking-wider font-bold text-lg text-zinc-700;
+    @apply -tracking-wider font-bold text-sm sm:text-lg text-zinc-700;
   }
 
   h1 {
-    @apply text-zinc-700 mb-2.5 font-bold text-xl -tracking-[0.015em];
+    @apply text-zinc-700 mb-2.5 font-bold text-lg sm:text-xl -tracking-[0.015em];
   }
 
   p {
-    @apply font-medium text-sm text-zinc-800 text-[15px] leading-5 mb-5;
+    @apply font-medium text-zinc-800 text-[13px] sm:text-[15px] leading-5 mb-5;
   }
 
   a {
@@ -37,11 +37,11 @@
   }
 
   code {
-    @apply p-1 bg-zinc-100 rounded-md text-sm text-zinc-800 overflow-x-scroll;
+    @apply p-1 bg-zinc-100 rounded-md text-xs sm:text-sm text-zinc-800 overflow-x-scroll;
   }
 
   pre {
-    @apply p-5 bg-zinc-100 rounded-md text-sm mb-5 overflow-x-scroll;
+    @apply p-5 bg-zinc-100 rounded-md text-xs sm:text-sm mb-5 overflow-x-scroll;
   }
 
   pre code {

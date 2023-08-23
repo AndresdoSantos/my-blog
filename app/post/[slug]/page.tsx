@@ -1,12 +1,8 @@
-import Link from 'next/link'
-
 import { client } from '@/apollo-client'
 import {
   GET_POST_BY_SLUG_QUERY,
   PostBySlug,
 } from '@/gql/queries/get-post-by-slug-query'
-
-import { Github } from '@/components/icons/Github'
 
 import { PostHeader } from '@/components/post-header'
 
@@ -33,19 +29,19 @@ export default async function Post({ params }: Props) {
   const { data } = await getPostBySlug(params.slug)
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="max-w-4xl overflow-hidden">
       <PostHeader createdAt={data.post.createdAt} title={data.post.title} />
 
-      <h1 className="text-4xl font-bold text-zinc-700 -tracking-wider leading-10 mt-32 mb-10">
+      <h1 className="text-4xl font-bold text-zinc-700 -tracking-wider leading-10 mt-32 mb-10 px-5">
         {data.post.title}
       </h1>
-      <span className="text-[15px] font-normal text-zinc-600  -tracking-tight block mb-10">
+      <span className="text-[15px] font-normal text-zinc-600  -tracking-tight block mb-10 px-5">
         {data.post.description}
       </span>
 
       <div
         dangerouslySetInnerHTML={{ __html: data.post.content.html }}
-        className="post-content"
+        className="post-content px-5"
       />
 
       <div className="mb-5 mt-10 flex items-center">
@@ -64,7 +60,7 @@ export default async function Post({ params }: Props) {
         </ul>
       </div>
 
-      <footer className="flex items-center justify-between w-full border-t border-t-zinc-100 ">
+      {/** <footer className="flex items-center justify-between w-full border-t border-t-zinc-100 ">
         <section className="flex items-center gap-x-5 py-5">
           <Link
             href="https://github.com/AndresdoSantos"
@@ -74,7 +70,7 @@ export default async function Post({ params }: Props) {
             <Github />
           </Link>
         </section>
-      </footer>
+      </footer> */}
     </div>
   )
 }
