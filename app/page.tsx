@@ -9,7 +9,14 @@ import { GET_POSTS_QUERY, Posts } from '@/gql/queries/get-posts-query'
 async function getPosts() {
   const { data } = await client.query<Posts>({
     query: GET_POSTS_QUERY,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 10 }, // seconds
+      },
+    },
   })
+
+  console.log(data)
 
   return {
     data,
