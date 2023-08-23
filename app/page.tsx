@@ -11,7 +11,7 @@ async function getPosts() {
     query: GET_POSTS_QUERY,
     context: {
       fetchOptions: {
-        next: { revalidate: 10 }, // seconds
+        next: { revalidate: 3600 * 8 }, // seconds
       },
     },
   })
