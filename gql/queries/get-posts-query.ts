@@ -5,11 +5,8 @@ export const GET_POSTS_QUERY = gql`
     posts(orderBy: createdAt_DESC) {
       title
       slug
-      description
-      imageUrl
-      tags
-
       createdAt
+      id
     }
   }
 `
@@ -17,9 +14,7 @@ export const GET_POSTS_QUERY = gql`
 export type Post = {
   title: string
   slug: string
-  description: string
-  imageUrl: string
-  tags: string[]
+  id: string
   createdAt: string
 }
 

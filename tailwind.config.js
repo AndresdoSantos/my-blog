@@ -35,7 +35,14 @@ module.exports = {
         slideRightAndFade:
           'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        mono: ['var(--font-roboto-mono)'],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-dotted-background'),
+  ],
 }
