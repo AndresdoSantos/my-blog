@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
 export const GET_POST_BY_SLUG_QUERY = gql`
-  query GetPostsQuery($slug: String) {
+  query GetPostBySlugQuery($slug: String!) {
     post(where: { slug: $slug }) {
       title
       slug
@@ -10,6 +10,9 @@ export const GET_POST_BY_SLUG_QUERY = gql`
         html
       }
       createdAt
+    }
+    likes(where: { slug: $slug }, stage: DRAFT) {
+      name
     }
   }
 `
@@ -24,4 +27,7 @@ export type PostBySlug = {
     }
     createdAt: string
   }
+  likes: {
+    name: string
+  }[]
 }

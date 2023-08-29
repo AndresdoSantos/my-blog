@@ -45,17 +45,17 @@ const MENU = [
     ],
   },
   {
-    title: 'Social medias',
+    title: 'Follow me on...',
     data: [
       {
         title: 'X',
-        link: '/',
+        link: '/twitter.com',
         icon: <FaTwitter size={16} />,
         hasArrow: true,
       },
       {
         title: 'Github',
-        link: '/',
+        link: 'https://github.com/AndresdoSantos',
         icon: <FaGithub size={18} />,
         hasArrow: true,
       },
@@ -67,10 +67,10 @@ export function Menu() {
   const pathname = usePathname()
 
   return (
-    <ul className="mt-5">
+    <ul className="px-2.5">
       {MENU.map((menu) => (
         <li key={menu.title}>
-          <p className="block mb-2.5 mt-8 text-xs text-zinc-400 px-2.5 font-medium">
+          <p className="block mb-2.5 mt-5 text-xs text-zinc-400 px-2.5 font-medium">
             {menu.title}
           </p>
 
