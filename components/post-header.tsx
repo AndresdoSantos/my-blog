@@ -31,7 +31,7 @@ export function PostHeader({ title, children }: Props) {
   return (
     <header
       data-show={isShow}
-      className="data-[show=true]:bg-zinc-800/50 data-[show=false]:bg-inherit backdrop-blur-sm fixed top-0 flex items-center justify-between px-20 h-12 w-[calc(100%_-_40rem)] border-b border-b-zinc-800"
+      className="data-[show=true]:bg-zinc-800/50 data-[show=false]:bg-inherit backdrop-blur-sm fixed top-0 flex items-center justify-between px-20 h-12 w-[calc(100%_-_40rem)]"
     >
       <div className="w-1/2">
         <h2 className="text-sm font-bold text-primary line-clamp-1 text-white">

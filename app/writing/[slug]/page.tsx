@@ -1,7 +1,6 @@
 import { client } from '@/apollo-client'
 
 import { PostHeader } from '@/components/post-header'
-import { Likes } from '@/components/likes'
 
 import {
   GET_POST_BY_SLUG_QUERY,
@@ -16,7 +15,7 @@ async function getPostBySlug(slug: string) {
     },
     context: {
       fetchOptions: {
-        next: { revalidate: 5 }, // seconds - 8 hours
+        next: { revalidate: 8 * 3600 }, // seconds - 8 hours
       },
     },
   })
@@ -30,14 +29,13 @@ type Props = {
   }
 }
 
-export default async function Post({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { data } = await getPostBySlug(params.slug)
-  console.log('data.likes', data.likes)
 
   return (
     <div className="min-h-screen h-full w-full max-w-[calc(100%_-_40rem)] ml-auto bg-[#050505]">
       <PostHeader title={data.post.title}>
-        <Likes likes={data.likes.length} />
+        {/** <Likes likes={data.likes.length} /> */}
       </PostHeader>
 
       <main className="px-20 w-full">
