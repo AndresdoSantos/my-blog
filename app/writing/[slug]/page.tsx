@@ -33,23 +33,25 @@ export default async function Page({ params }: Props) {
   const { data } = await getPostBySlug(params.slug)
 
   return (
-    <div className="min-h-screen h-full w-full max-w-[calc(100%_-_40rem)] ml-auto bg-[#050505]">
+    <div className="min-h-screen h-full w-full sm:max-w-[calc(100%_-_40rem)] sm:ml-auto bg-[#050505]">
       <PostHeader title={data.post.title}>
         {/** <Likes likes={data.likes.length} /> */}
       </PostHeader>
 
-      <main className="px-20 w-full">
+      <main className="px-5 sm:px-20 w-full">
         <h1 className="text-xl font-bold text-white leading-[56px] pt-20">
           {data.post.title}
         </h1>
 
-        <span className="text-white block">{data.post.description}</span>
+        <span className="text-white block text-sm dark:text-base">
+          {data.post.description}
+        </span>
 
         <div className="h-[1px] w-full my-5 bg-zinc-800/50" />
 
         <article
           dangerouslySetInnerHTML={{ __html: data.post.content.html }}
-          className="pb-20 w-full prose prose-invert prose-h3:text-[17px] prose-p:text-white prose-pre:bg-zinc-800/50 prose-code:bg-[#161617] prose-code:p-1 prose-code:rounded prose-code:text-xs prose-pre:p-5 prose-code:font-bold prose-code:font-mono prose-pre:font-mono"
+          className="pb-20 w-full prose prose-invert prose-h3:text-[17px] prose-p:text-white prose-p:text-sm sm:prose-p:text-base prose-pre:bg-zinc-800/50 prose-code:bg-[#161617] prose-code:p-1 prose-code:rounded prose-code:text-xs prose-pre:p-5 prose-code:font-bold prose-code:font-mono prose-pre:font-mono"
         />
       </main>
     </div>

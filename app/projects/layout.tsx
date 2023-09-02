@@ -6,6 +6,7 @@ import { GET_PROJECTS_QUERY, Projects } from '@/gql/queries/get-projects-query'
 
 import { CommonListItem } from '@/components/common-list-item'
 import Image from 'next/image'
+import { SideBar } from '@/components/side-bar'
 
 async function getProjects() {
   const { data } = await client.query<Projects>({
@@ -27,13 +28,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
 
   return (
     <main className="flex justify-between min-h-screen w-full">
-      <div className="fixed left-[15rem] flex flex-col gap-y-2 min-h-screen h-auto w-[25rem] max-w-[25rem] bg-[#171717] px-2.5 border-x border-x-zinc-700/50">
-        <header className="h-12 px-2.5 py-5">
-          <h2 className="text-sm font-bold line-clamp-1 text-white">
-            Projects
-          </h2>
-        </header>
-
+      <SideBar>
         <ul className="mt-5">
           {data.projects.map((item) => (
             <CommonListItem
@@ -55,7 +50,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
             </CommonListItem>
           ))}
         </ul>
-      </div>
+      </SideBar>
 
       {children}
     </main>

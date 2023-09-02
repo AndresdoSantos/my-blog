@@ -1,6 +1,8 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { ReactNode, useMemo, useState } from 'react'
+import { TbMenu } from 'react-icons/tb'
 
 type Props = {
   title: string
@@ -8,6 +10,8 @@ type Props = {
 }
 
 export function PostHeader({ title, children }: Props) {
+  const { back } = useRouter()
+
   const [isShow, setIsShow] = useState(false)
 
   useMemo(
@@ -31,13 +35,15 @@ export function PostHeader({ title, children }: Props) {
   return (
     <header
       data-show={isShow}
-      className="data-[show=true]:bg-zinc-800/50 data-[show=false]:bg-inherit backdrop-blur-sm fixed top-0 flex items-center justify-between px-20 h-12 w-[calc(100%_-_40rem)]"
+      className="data-[show=true]:bg-zinc-800/50 data-[show=false]:bg-inherit backdrop-blur-sm fixed top-0 flex items-center justify-between px-5 sm:px-20 h-12 w-full sm:w-[calc(100%_-_40rem)]"
     >
-      <div className="w-1/2">
-        <h2 className="text-sm font-bold text-primary line-clamp-1 text-white">
-          {isShow ? title : null}
-        </h2>
-      </div>
+      <button type="button" onClick={back} className="sm:hidden">
+        <TbMenu size={18} className="text-white" />
+      </button>
+
+      <h2 className="text-sm font-bold text-primary line-clamp-1 text-white">
+        {isShow ? title : null}
+      </h2>
 
       {children}
     </header>
