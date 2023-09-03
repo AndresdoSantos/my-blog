@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation'
 import { BiSolidHomeAlt2 } from 'react-icons/bi'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
-import { BsLaptopFill } from 'react-icons/bs'
-import { HiLightBulb, HiOutlineNewspaper } from 'react-icons/hi'
+import { HiOutlineNewspaper } from 'react-icons/hi'
+import { PiProjectorScreenBold } from 'react-icons/pi'
 
 const MENU = [
   {
@@ -23,12 +23,12 @@ const MENU = [
   {
     title: 'Me',
     data: [
-      {
+      /** {
         title: 'Learning',
         link: '/learning',
-        icon: <HiLightBulb size={16} />,
+        icon: <PiBrainBold size={16} />,
         hasArrow: false,
-      },
+      }, */
       {
         title: 'Writing',
         link: '/writing',
@@ -38,7 +38,7 @@ const MENU = [
       {
         title: 'Projects',
         link: '/projects',
-        icon: <BsLaptopFill size={16} />,
+        icon: <PiProjectorScreenBold size={16} />,
         hasArrow: false,
       },
     ],

@@ -36,23 +36,23 @@ export default async function ProjectPage({ params }: Props) {
   const { data } = await getWorkBySlug(params.slug)
 
   return (
-    <div className="min-h-screen h-full w-full max-w-[calc(100%_-_40rem)] ml-auto bg-[#050505]">
+    <div className="min-h-screen h-full w-full sm:max-w-[calc(100%_-_40rem)] sm:ml-auto bg-[#050505]">
       <PostHeader title={data.project.title} />
 
-      <div className="flex flex-col space-y-10 p-20">
+      <div className="py-20 px-5 sm:px-20 w-full">
         <article
           dangerouslySetInnerHTML={{ __html: data.project.description.html }}
           className="w-full prose prose-invert prose-h1:text-[1.25rem] prose-h3:text-[1rem] prose-p:text-white prose-p:text-sm prose-li:text-sm prose-pre:bg-zinc-800/50 prose-pre:p-6"
         />
 
-        <div className="flex items-center gap-x-5">
+        <div className="flex items-center justify-between w-full">
           <div className="bg-zinc-800/50 h-[1px] w-full"></div>
-          <span className="text-xs text-zinc-400 w-40">
-            Real app screenshots
+          <span className="text-xs text-zinc-400 w-36 truncate text-end">
+            App screenshots
           </span>
         </div>
 
-        <ol className="flex items-center space-x-2.5">
+        <ol className="flex flex-col sm:flex-row items-center mt-5 space-y-2.5 sm:space-y-0 space-x-0 sm:space-x-2.5">
           {data.project.images.map((image) => (
             <li
               key={image.id}
