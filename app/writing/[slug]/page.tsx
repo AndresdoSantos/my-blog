@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
 
         <article
           dangerouslySetInnerHTML={{ __html: data.post.content.html }}
-          className="pb-20 w-full leading-8 prose prose-invert prose-h3:mt-10 prose-h3:text-[20px] prose-h3:font-extrabold prose-p:text-white prose-p:text-sm sm:prose-p:text-[15px] prose-strong:font-extrabold prose-blockquote:text-sm sm:prose-blockquote:text-[15px] prose-pre:bg-zinc-800/50 prose-code:bg-[#161617] prose-code:p-1 prose-code:rounded prose-code:text-[12.5px] prose-pre:p-5 prose-code:font-bold prose-code:font-mono prose-pre:font-mono"
+          className="pb-20 w-full leading-8 prose prose-invert prose-h5:text-[17px] prose-h5:font-bold prose-h5:mt-10 prose-h3:mt-10 prose-h3:text-[20px] prose-h3:font-extrabold prose-p:text-white prose-p:text-sm sm:prose-p:text-[15px] prose-strong:font-extrabold prose-blockquote:text-sm sm:prose-blockquote:text-[15px] prose-pre:bg-zinc-800/50 prose-code:bg-[#161617] prose-code:p-1 prose-code:rounded prose-code:text-[12.5px] prose-pre:p-5 prose-code:font-bold prose-code:font-mono prose-pre:font-mono"
         />
       </main>
     </div>
